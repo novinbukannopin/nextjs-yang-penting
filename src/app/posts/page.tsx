@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Post } from "@/types/post";
 import { Title } from "@/component/atoms/title";
+import Image from "next/image";
 
 async function getPosts(): Promise<Post[]> {
   const response = await fetch("http://localhost:3001/posts");
@@ -13,6 +14,18 @@ export default async function PostPage() {
   return (
     <>
       <Title>Post Page</Title>
+
+      <Image
+        src={"/imageeee.webp"}
+        alt={"Gambar Apa yaaa"}
+        width={300}
+        height={300}
+        loading={"eager"}
+        placeholder={"blur"}
+        blurDataURL={
+          "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAEAAUDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAcEAABBAMBAAAAAAAAAAAAAAACAAEDBBEhMQX/xAAUAQEAAAAAAAAAAAAAAAAAAAAE/8QAGREAAwADAAAAAAAAAAAAAAAAAAEDAhIz/9oADAMBAAIRAxEAPwCHXfXlv2zGKCtQihERGOmDgL66+XfL66iIhQ54j6JbH//Z"
+        }
+      />
 
       {data.map((post: Post) => (
         <div
